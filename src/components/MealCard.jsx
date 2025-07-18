@@ -1,4 +1,4 @@
-export default function Card({ meal }) {
+export default function MealCard({ meal }) {
     return (
         <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
             <img
