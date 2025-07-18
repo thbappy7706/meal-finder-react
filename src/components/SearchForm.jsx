@@ -21,6 +21,7 @@ export default function SearchForm({ search, setSearch, handleSearch, loading })
                     type="text"
                     placeholder="Search Your Desire Meal..."
                     value={search}
+                    required={true}
                     ref={inputRef}
                     onInput={(event) => setSearch(event.target.value)}
                     className="flex-grow px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
