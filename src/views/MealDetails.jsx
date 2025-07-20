@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import MainLayout from "../layouts/MainLayout.jsx";
+import {FaYoutube} from "react-icons/fa";
 
 export default function MealDetails() {
     const { id } = useParams();
@@ -73,15 +74,16 @@ export default function MealDetails() {
 
                     {meal.strYoutube && (
                         <div className="mt-6">
-                            <h3 className="text-2xl font-semibold mb-2">Video</h3>
                             <a
                                 href={meal.strYoutube}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-blue-600 underline"
+                                className="inline-flex items-center bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-red-500"
                             >
+                                <FaYoutube className="mr-2 text-2xl" />
                                 Watch on YouTube
                             </a>
+
                         </div>
                     )}
                 </div>
