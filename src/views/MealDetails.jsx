@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import MainLayout from "../layouts/MainLayout.jsx";
-import {FaYoutube} from "react-icons/fa";
+import { FaYoutube } from "react-icons/fa";
+import SkeletonCard from "../components/SkeletonCard.jsx"; // ✅ Import it
 
 export default function MealDetails() {
     const { id } = useParams();
@@ -36,17 +37,26 @@ export default function MealDetails() {
 
     return (
         <MainLayout>
-            {loading && <p className="p-4">Loading...</p>}
+            {loading && (
+                <div className="p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    {[...Array(1)].map((_, i) => (
+                        <SkeletonCard key={i} />
+                    ))}
+                </div>
+            )}
+
             {error && (
                 <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded mb-4 w-96 text-center">
                     {error}
                 </div>
             )}
 
-            {meal && (
+            {meal && !loading && (
                 <div className="p-4 max-w-4xl mx-auto">
                     <h2 className="text-3xl font-bold mb-2">{meal.strMeal}</h2>
-                    <p className="text-gray-500 mb-4">{meal.strCategory} | {meal.strArea}</p>
+                    <p className="text-gray-500 mb-4">
+                        {meal.strCategory} | {meal.strArea}
+                    </p>
 
                     <img
                         src={meal.strMealThumb}
@@ -63,7 +73,8 @@ export default function MealDetails() {
                             const ingredient = meal[`strIngredient${i + 1}`];
                             const measure = meal[`strMeasure${i + 1}`];
                             return (
-                                ingredient && ingredient.trim() && (
+                                ingredient &&
+                                ingredient.trim() && (
                                     <li key={i}>
                                         {ingredient} — {measure}
                                     </li>
@@ -83,7 +94,6 @@ export default function MealDetails() {
                                 <FaYoutube className="mr-2 text-2xl" />
                                 Watch on YouTube
                             </a>
-
                         </div>
                     )}
                 </div>

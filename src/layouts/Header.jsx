@@ -1,29 +1,21 @@
 import { NavLink } from "react-router-dom";
+import {FaUtensils} from "react-icons/fa";
 
 export default function Header() {
     return (
         <nav className="bg-gray-900 p-4 flex items-center justify-between shadow-md">
             {/* Left side: Logo + Title */}
             <div className="flex items-center space-x-3">
-                <svg
-                    className="w-8 h-8 text-indigo-500"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                    aria-hidden="true"
-                >
-                    <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M7 21v-7M10 21V8M14 21v-7m3 7v-4m-6-7l-2-2m4 0l2-2"
-                    />
-                </svg>
 
-                <NavLink to="/" className="text-white text-2xl font-semibold tracking-wide cursor-pointer">
-                    MealSearch
+                <NavLink
+                    to="/"
+                    className="text-white text-3xl tracking-wide cursor-pointer flex items-center gap-2"
+                    style={{ fontFamily: "Impact" }}
+                >
+                    <FaUtensils className="inline-block text-amber-700" />
+                    MEAL FINDER
                 </NavLink>
+
             </div>
 
             {/* Right side: Navigation Links */}
