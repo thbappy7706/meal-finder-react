@@ -3,6 +3,7 @@
  import Home from "./views/Home.jsx";
  import Ingredients from "./views/Ingredients.jsx";
  import MealDetails from "./views/MealDetails.jsx";
+ import MealsByIngredients from "./views/MealsByIngredients.jsx";
 
 function App() {
     return (
@@ -10,6 +11,7 @@ function App() {
                 <Route path="/" element={<Home/>}/>
                 <Route path="/ingredients" element={<Ingredients/>}/>
                 <Route path="/meal/:id" element={<MealDetails />} />
+                <Route path="/ingredient/:ingredient" element={<MealsByIngredients />} />
 
             </Routes>
     );
